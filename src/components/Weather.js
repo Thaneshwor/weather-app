@@ -1,25 +1,40 @@
 import React from "react";
+import WeatherInfo from "./WeatherInfo";
+import "../App.css";
+import "../assets/css/style.css";
 
 const Weather = (props) => (
-    <div>
-        {
-            props.city && props.country &&
-            <p>Location: <span className='weather-value'>{props.city}</span>, <span className='weather-value'>{props.country}</span></p>
-        }
-        {
-            props.city &&
-            <p>Temperature: <span className='weather-value'>{props.temperature}</span></p>
-        }
-        {
-            props.humidity &&
-            <p> Humidity: <span className='weather-value'>{props.humidity}</span></p>
-        }
-        {
-            props.description &&
-            <p>Conditions: <span className='weather-value'>{props.description}</span></p>
-        }
-        {props.error &&
-            <p><span className='weather-error'>{props.error}</span></p>}
+    <div className='weather-container container-max-width'>
+        <div className='weather-container-in'>
+            {
+                props.country &&
+                <WeatherInfo info={props.country} title='Country : ' />
+            }
+            {
+                props.city &&
+                <WeatherInfo info={props.city} title='City : ' />
+            }
+
+            {
+                props.temperature &&
+                <WeatherInfo info={props.temperature} title='Temperature : ' />
+            }
+
+            {
+                props.humidity &&
+                <WeatherInfo info={props.humidity} title='Humidity : ' />
+            }
+            {
+                props.description &&
+                <WeatherInfo info={props.description} title='Description : ' />
+            }
+
+            {
+                props.error &&
+                <p><WeatherInfo info={props.error} title='' /> </p>
+            }
+
+        </div>
     </div>
 );
 
