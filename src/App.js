@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import Titles from "./components/Titles";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import "./App.css";
 
 const API_KEY = "5445bb34975aecd85be59c79e3a76865";
@@ -46,7 +47,7 @@ class App extends Component {
         country: undefined,
         humidity: undefined,
         description: undefined,
-        error: "Please enter valid inputs"
+        error: "Please enter valid city and country"
       })
     }
 
@@ -57,7 +58,7 @@ class App extends Component {
     return (
       <div className='wrapper'>
         <div className='main'>
-          <Titles />
+          <Header />
           <Form getWeather={this.getWeather} />
           <Weather
             temperature={this.state.temperature}
@@ -67,6 +68,7 @@ class App extends Component {
             description={this.state.description}
             error={this.state.error}
           />
+          {/* <Footer /> */}
         </div>
       </div>
     );
